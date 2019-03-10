@@ -10,27 +10,12 @@ router.post('/action', function (ctx, next) {
 	var data = {
 		code: 200,
 		message: 'ok',
-		data: {
-			nodes: [{
-				id: 'node1',  //id唯一
-				color: '#333',           // 颜色
-				x: 100,  //距离左侧距离
-				y: 200   //距离右侧距离
-			 },{
-				id: 'node2',
-				x: 300,
-				y: 200
-			 }],
-			//  边的数据模型
-			edges: [{
-				id: 'edge1',
-				color: 'red',          // 颜色
-				target: 'node2', //目标节点
-				source: 'node1' //源节点
-			}]
+		data:{
+			
 		}
 	};
 	ctx.body = JSON.stringify(data);
+	console.log("");
 });
 
 // router.use('/alarm', alarmProcess.routes());
