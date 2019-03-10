@@ -1,0 +1,100 @@
+
+/*
+ * 主体部分公共样式
+ *    全局类的样式, 必须以 app- 作为开头
+ */
+
+html, body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  /* 对字体进行抗锯齿渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 1340px;
+  color: #666;
+  font-size: 14px;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+/* input背景色默认是黄色 */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/*滚动条样式--webkit*/
+
+/* 整体 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  -webkit-border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 内层轨道 */
+::-webkit-scrollbar-track-piece {
+  -webkit-border-radius: 0;
+  cursor: pointer;
+}
+
+/* 滑块 */
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  -webkit-border-radius: 6px;
+  outline-offset: -2px;
+  background: #cccccc;
+  border: 2px solid #cccccc;
+  cursor: pointer;
+}
+
+/* 滑块悬停 */
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background: #d7d5d5;
+  border: 2px solid #d7d5d5;
+  -webkit-border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 样式工具 */
+
+.app-fill-height {
+  height: 100%;
+}
+
+.app-icon-right {
+  margin-right: 5px;
+}
+
+.app-hover {
+  outline: none;    /* 取消选中的辉光 */
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.app-hover:hover,
+.app-hover:hover i {
+  color: #3eacf9;
+}
+
+.app-hover.active {
+  color: #3eacf9;
+}
+
+.app-align-left {
+  text-align: left;
+}
+.app-align-center {
+  text-align: center;
+}
+.app-align-right {
+  text-align: right;
+}

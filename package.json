@@ -1,0 +1,56 @@
+{
+  "name": "aigovisual-web",
+  "version": "0.0.1",
+  "scripts": {
+    "mock": "./node_modules/.bin/nodemon mock/server.js",
+    "server": "./node_modules/.bin/nodemon server/server.js",
+    "start": "npm run dev-serve",
+    "dev-serve": "vue-cli-service serve",
+    "serve:local": "./node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@antv/g2": "^3.4.8",
+    "@antv/g6": "^2.2.6",
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "element-resize-detector": "^1.1.14",
+    "element-ui": "^2.4.11",
+    "liquor-tree": "^0.2.53",
+    "moment": "^2.22.2",
+    "node-sass": "^4.10.0",
+    "numeral": "^2.0.6",
+    "store": "^2.0.12",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-favicon": "^2.0.0",
+    "koa-history-api-fallback": "^0.1.3",
+    "koa-proxies": "^0.3.0",
+    "koa-router": "^7.2.0",
+    "koa-send": "^4.1.0",
+    "koa-static": "^3.0.0",
+    "koa2-history-api-fallback": "0.0.5",
+    "nodemon": "^1.11.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
