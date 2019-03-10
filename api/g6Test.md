@@ -3,12 +3,15 @@
 提供节点模型数据和边模型数据。
 ### 1.2 请求说明
 > 请求方式：POST<br>
-请求URL ：[http://192.168.44.1:3001/api/action](#)
+请求URL ：[http://localhost:3001/api/action](#)
 
 ### 1.3 请求参数
 字段       |字段类型       |字段说明
 ------------|-----------|-----------
-null       |null        |null
+id       |string        |唯一键
+color       |string        |颜色
+x|string| x轴距离
+y|string| y轴距离
 ### 1.4 返回结果
 ```json  
 {
