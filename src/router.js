@@ -6,6 +6,7 @@ Vue.use(Router);
 
 // 根页面
 import main from '@/views/main.vue'
+import demo from '@/views/demo.vue'
 import empty from '@/views/empty.vue'
 
 // 登录
@@ -40,6 +41,10 @@ const db_backup = resolve => require(['@/views/project/setting/system/db_backup.
 // 设置 - 远程FTP
 const ftp = resolve => require(['@/views/project/setting/system/ftp.vue'], resolve);
 
+//demo
+const quanju = resolve => require(['@/views/demo/quanju.vue'], resolve); 
+
+
 // 错误页面
 const page404 = resolve => require(['@/views/common/page-404.vue'], resolve);
 const page403 = resolve => require(['@/views/common/page-403.vue'], resolve);
@@ -50,9 +55,9 @@ const test = resolve => require(['@/views/test.vue'], resolve);
 
 const router = new Router({
 	routes: [
-		{
-			path: '/', redirect: '/login', name: '/' //@fixme 需要全局判断用户是否已经登录
-		},
+		// {
+		// 	path: '/', redirect: '/login', name: '/' //@fixme 需要全局判断用户是否已经登录
+		// },
 		{
 			path: '/main', name: 'main', component: main,
 			children: [
@@ -107,9 +112,21 @@ const router = new Router({
 							]
 						}
 					]
+				},
+				{
+					path: 'quanju', name: 'quanju', component: quanju, meta: {name: 'demo'}
 				}
 			]
 		}
+		// ,
+		// {
+		// 	path:'/demo',name:'demo', component: demo,
+		// 	children:[
+		// 		{
+		// 			path: 'quanju', name: 'quanju', component: quanju, meta: {name: 'demo'}
+		// 		}
+		// 	]
+		// }
 		,
 		{
 			path: '*', component: page404
