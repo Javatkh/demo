@@ -43,7 +43,8 @@ const ftp = resolve => require(['@/views/project/setting/system/ftp.vue'], resol
 
 //demo
 const quanju = resolve => require(['@/views/demo/quanju.vue'], resolve); 
-
+//g2_demo
+const g2_demo = resolve => require(['@/views/demo/g2_demo.vue'], resolve); 
 
 // 错误页面
 const page404 = resolve => require(['@/views/common/page-404.vue'], resolve);
@@ -115,6 +116,9 @@ const router = new Router({
 				},
 				{
 					path: 'quanju', name: 'quanju', component: quanju, meta: {name: 'demo'}
+				},
+				{
+					path: 'g2_demo', name: 'g2_demo', component: g2_demo, meta: {name: 'g2_demo'}
 				}
 			]
 		}
