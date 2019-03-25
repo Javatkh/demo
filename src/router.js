@@ -41,12 +41,14 @@ const db_backup = resolve => require(['@/views/project/setting/system/db_backup.
 // 设置 - 远程FTP
 const ftp = resolve => require(['@/views/project/setting/system/ftp.vue'], resolve);
 
-//demo
+// demo
 const quanju = resolve => require(['@/views/demo/quanju.vue'], resolve); 
-//g2_demo
+// g2_demo
 const g2_demo = resolve => require(['@/views/demo/g2_demo.vue'], resolve); 
 // c3_demo
 const c3_demo = resolve => require(['@/views/demo/c3_demo.vue'], resolve); 
+// g2_demo2
+const g2_demo2 = resolve => require(['@/views/demo/g2_demo2.vue'], resolve);
 
 
 // 错误页面
@@ -125,6 +127,9 @@ const router = new Router({
 				},
 				{
 					path: 'c3_demo', name: 'c3_demo', component: c3_demo, meta: {name: 'c3_demo'}
+				},
+				{
+					path: 'g2_demo2', name: 'g2_demo2', component: g2_demo2, meta: {name: 'g2_demo2'}
 				}
 			]
 		}

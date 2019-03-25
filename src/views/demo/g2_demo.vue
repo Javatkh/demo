@@ -170,7 +170,7 @@ export default {
       }
     });
     // 提示信息内容
-    chart2.line().position("year*value").label('value');;
+    chart2.line().position("year*value").label('value');
     chart2
       .point()
       .position("year*value")
