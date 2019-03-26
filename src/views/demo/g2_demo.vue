@@ -136,7 +136,7 @@ export default {
       // forceFit: true,
       width: 600,
       // height: window.innerHeight
-      height: 300
+      height: 300,
     });
     // 加载数据
     chart1.source(this.data1);
@@ -144,7 +144,20 @@ export default {
     chart1.scale("sales", {
       tickInterval: 20
     });
-    chart1.interval().position("year*sales");
+    chart1.interval().position("year*sales").label('sales',{
+      offset: 15,
+      textStyle: {
+        textAlign: 'center', // 文本对齐方向，可取值为： start middle end
+        fill: 'red', // 文本的颜色
+        fontSize: '12', // 文本大小
+        fontWeight: 'bold', // 文本粗细
+        rotate: 10, 
+        textBaseline: 'bottom' // 文本基准线，可取 top middle bottom，默认为middle
+      } 
+    })
+    // .style({
+    //   fill: 'l(90) 0:#ffffff 0.5:#00A8FF 1:#83CDF3'
+    // });
     chart1.render();
 
     // 折线图

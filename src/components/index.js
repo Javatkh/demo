@@ -14,6 +14,9 @@ import requestTable from './request-table/request-table'
 
 import apploading from './app-loading'
 
+
+import g2_demo from './g2_demo'
+
 const Components = {
 	install: function(Vue) {
 		Vue.component('app-header', appHeader)
@@ -21,6 +24,7 @@ const Components = {
 		Vue.component('app-content', appContent)
 		Vue.component('app-module-title', appModuleTitle)
 		Vue.component('app-module-content', appModuleContent)
+		Vue.component('app-g2-demo', g2_demo)
 
 		// 可以编辑的元素
 		Vue.component('app-edit-element', editElement)

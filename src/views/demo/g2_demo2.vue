@@ -6,7 +6,12 @@
 
 <script>
 import G2 from "@antv/g2";
+// 引入element-resize-detector  https://blog.csdn.net/qq_39852145/article/details/83418897    
+import {tableHeight} from '@/mixin/mixin';
 export default {
+  mixins: [
+    tableHeight
+  ],
   name: "g2_demo2",
   computed: {},
   data() {
@@ -48,7 +53,8 @@ export default {
           year: "1999",
           value: 33233
         }
-      ]
+      ],
+      tableHeight:1000
     };
   },
   methods: {},
@@ -56,11 +62,13 @@ export default {
     var chart = new G2.Chart({
       container: "c1",
       // forceFit: true,
-      width:800,
-      height:300,
-      // height: window.innerHeight
+      width: 800,
+      height: 300,
+      // height: window.innerHeight,
     });
+
     chart.source(this.data);
+
     // 度量计算
     chart.scale({
       value: {
@@ -70,6 +78,7 @@ export default {
         range: [0, 1]
       }
     });
+
     // 坐标轴计算
     chart.axis("value", {
       // 刻度文本
@@ -79,6 +88,7 @@ export default {
         }
       }
     });
+
     // 提示信息
     chart.tooltip({
       // 辅助线 默认为垂直辅助线
@@ -86,26 +96,40 @@ export default {
         type: "line"
       }
     });
-    chart.area().position("year*value").label('value',{
-      // 提示框文本显示样式
-      textStyle: {
-        textAlign: 'start', // 文本对齐方向，可取值为： start middle end
-        // fill: 'red', // 文本的颜色
-      } 
-    });
+
+    chart
+      .area()
+      .position("year*value")
+      .label("value", {
+        // 提示框文本显示样式
+        textStyle: {
+          textAlign: "start" // 文本对齐方向，可取值为： start middle end
+          // fill: 'red', // 文本的颜色
+        }
+      })
+      // 为区域设置样式
+      .style({
+          fill: "l(90) 0:#ffffff 0.5:#2CB9F0 1:#0028FF"
+      })
+
+    // 渐变
+    // .opacity(1);
+
     chart
       // line 不显示折点  point显示折点
       .point()
       .position("year*value")
-      // 折点大小 默认空心蓝色  
-      .size(3)
+      // 折点大小 默认空心蓝色
+      .size(2)
       //折线转节点处图案形状  从此处可以不写
-      .shape("circle")
+      .shape("circular")
       .style({
         // 折点边框颜色和大小
-        stroke: "#fff",
-        lineWidth: 2
-      });
+        // stroke: "#fff",
+        // lineWidth: 2,
+      })
+    //折线图上线段 
+    chart.lineStack().position('year*value');
     chart.render();
   }
 };
