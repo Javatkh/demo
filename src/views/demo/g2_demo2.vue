@@ -1,5 +1,5 @@
 <template>
-  <div class="g2_demo2">
+  <div class="g2_demo2" id="g2_demo2">
     <div id="c1"></div>
   </div>
 </template>
@@ -7,11 +7,8 @@
 <script>
 import G2 from "@antv/g2";
 // 引入element-resize-detector  https://blog.csdn.net/qq_39852145/article/details/83418897    
-import {tableHeight} from '@/mixin/mixin';
+var elementResizeDetectorMaker = require("element-resize-detector");
 export default {
-  mixins: [
-    tableHeight
-  ],
   name: "g2_demo2",
   computed: {},
   data() {
@@ -54,17 +51,36 @@ export default {
           value: 33233
         }
       ],
-      tableHeight:1000
+      width:'',
+      height:'',
     };
   },
   methods: {},
   mounted() {
+    var erd = elementResizeDetectorMaker();
+    var erdUltraFast = elementResizeDetectorMaker({
+      strategy: "scroll" //<-For ultra performance.
+    });
+    erd.listenTo(document.getElementById("g2_demo2"),element =>{
+      this.$data.width = element.offsetWidth;
+      this.$data.height = element.offsetHeight;
+      console.log(this.$data.width)
+      console.log("Size: " + element.offsetWidth + "x" + element.offsetHeight);
+    });
+    // erd.listenTo(document.getElementById("g2_demo2"), function(element) {
+    //   var width = element.offsetWidth;
+    //   var height = element.offsetHeight;
+    //   console.log("Size" + width + "x" + height);
+    // });
+    console.log(this.$data.height)
     var chart = new G2.Chart({
       container: "c1",
       // forceFit: true,
-      width: 800,
-      height: 300,
+      // width: this.$data.width,
+      // height: this.$data.height,
       // height: window.innerHeight,
+      // width:800,
+      // height:400,
     });
 
     chart.source(this.data);
@@ -139,6 +155,10 @@ export default {
 .g2_demo2 {
   height: 100%;
   position: relative;
+}
+#canvas_1{
+  /* width: 300px !important;
+  height: 200px !important; */
 }
 </style>
 
